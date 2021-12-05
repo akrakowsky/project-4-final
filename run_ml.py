@@ -6,15 +6,15 @@ from sqlalchemy import create_engine
 
 
 
-def predictions(age_type, gender_type):
+def predictions(Latitude, Longitude):
       
     engine = create_engine("postgresql://postgres:<enter password>@localhost:5432/capstone")
-    model_df = pd.read_sql("SELECT * FROM final_project;", engine)
+    ml_df = pd.read_sql("SELECT * FROM Project_4;", engine)
         
     # model_df = pd.read_csv("./db.csv")
 
-    X = model_df[["age_type", "gender_type"]]
-    y = model_df["degree_type"]
+    X = ml_df[["LATITUDE", "LONGITUDE"]]
+    y = ml_df["Shape"]
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.8, random_state=1)
     scaler = StandardScaler().fit(X_train)
@@ -27,4 +27,4 @@ def predictions(age_type, gender_type):
     print(f'Training Score: {clf.score(X_train_scaled, y_train)}')
     print(f'Testing Score: {clf.score(X_test_scaled, y_test)}')
 
-    return clf.predict([[age_type,gender_type]])
+    return clf.predict([[Latitude, Longitude]])
