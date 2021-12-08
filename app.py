@@ -26,12 +26,12 @@ def predict():
     if request.method == "POST":
         #data = request.get_json(force=True)
         print(request.form['LATITUDE'])
-        data = float(request.form['LATITUDE'])
+        data1 = float(request.form['LATITUDE'])
         print(request.form['LONGITUDE'])
-        data = float(request.form['LONGITUDE'])
-        print("Data", model.predict([[data]]))
+        data2 = float(request.form['LONGITUDE'])
+        print("Data", model.predict([[data1, data2]]))
         # Make prediction using model loaded from disk as per the data.
-        prediction = model.predict([[data]])
+        prediction = model.predict([[data1, data2]])
 
         # Take the first value of prediction
         output = prediction[0]
