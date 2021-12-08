@@ -13,13 +13,13 @@ import requests
 import json
 
 # Importing the dataset
-dataset = pd.read_csv('../data/Salary_Data.csv')
-X = dataset.iloc[:, :-1].values
-y = dataset.iloc[:, 1].values
+dataset = pd.read_csv('./ufo_db.csv')
+X = dataset.drop(["Category"], axis="columns").values
+y = dataset["Category"].values
 
 # Splitting the dataset into the Training set and Test set
 from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 1/3, random_state = 0)
+X_train, X_test, y_train, y_test = train_test_split(X, y, train_size = 0.8, random_state = 1)
 
 # Fitting Simple Linear Regression to the Training set
 from sklearn.linear_model import LinearRegression
@@ -34,4 +34,4 @@ pickle.dump(regressor, open('model.pkl','wb'))
 
 # Loading model to compare the results
 model = pickle.load( open('model.pkl','rb'))
-print(model.predict([[1.8]]))
+print(model.predict([[38.58, -121.49]]))

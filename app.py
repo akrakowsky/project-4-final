@@ -13,7 +13,7 @@ import pickle
 app = Flask(__name__)
 
 # Load the model
-model = pickle.load(open('./model/model.pkl','rb'))
+model = pickle.load(open('./model.pkl','rb'))
 
 @app.route('/')
 def home():
@@ -25,8 +25,10 @@ def predict():
     # Get the data from the POST request.
     if request.method == "POST":
         #data = request.get_json(force=True)
-        print(request.form['exp'])
-        data = float(request.form['exp'])
+        print(request.form['LATITUDE'])
+        data = float(request.form['LATITUDE'])
+        print(request.form['LONGITUDE'])
+        data = float(request.form['LONGITUDE'])
         print("Data", model.predict([[data]]))
         # Make prediction using model loaded from disk as per the data.
         prediction = model.predict([[data]])

@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Spam Detector</title>
+        <title>UFO Shape Predictor</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
     </head>
     <body>
 
 	<header>
 		<div class="container">
-		    <h2>Salary Predictor</h2>
+		    <h2>UFO Shape Predictor</h2>
 	    </div>
 	</header>
         <div class="container">
-            <img src="https://media.giphy.com/media/xT39DkL2ZGZHA0Qr1S/giphy.gif"/>
+            <img src="./image.png"/>
 
             <form action="/predict" method="POST" class="form">
                 <div class="fieldset">
-                    <label>Enter Your Experience Level</label>
-                    <input class="exp" name="exp"/>
+                    <label>Enter Latitude</label>
+                    <input class="LATITUDE" name="LATITUDE"/>
+                    <label>Enter Longitude</label>
+                    <input class="LONGITUDE" name="LONGITUDE"/>
                 </div>
                 <input type="submit" class="button" value="predict">
             </form>
