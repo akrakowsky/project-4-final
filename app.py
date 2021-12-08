@@ -9,6 +9,8 @@ the results in JSON format.
 import numpy as np
 from flask import Flask, render_template, request, jsonify
 import pickle
+from sklearn import preprocessing
+from sklearn.preprocessing import LabelEncoder
 
 app = Flask(__name__)
 
@@ -24,6 +26,8 @@ def home():
 def predict():
     # Get the data from the POST request.
     if request.method == "POST":
+        #label_encoder =LabelEncoder()
+        #model['Category']= label_encoder.fit_transform(model['Category'])
         #data = request.get_json(force=True)
         print(request.form['LATITUDE'])
         data1 = float(request.form['LATITUDE'])
@@ -34,8 +38,12 @@ def predict():
         prediction = model.predict([[data1, data2]])
 
         # Take the first value of prediction
+        #output = list(label_encoder.inverse_transform(prediction))[0]
         output = prediction[0]
-
+        if prediction == 1:
+            output = "Light"
+        else:
+            output = "Dim"
         return render_template("results.html", output=output, exp=[data1, data2])
 
 if __name__ == '__main__':
