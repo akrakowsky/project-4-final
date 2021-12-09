@@ -41,7 +41,7 @@ def predict():
         output = prediction[0]
         if prediction == 1:
             output = "Light"
-        else:
+        else if:
             output = "Dim"
         return render_template("results.html", output=output, exp=[data1, data2])
 
