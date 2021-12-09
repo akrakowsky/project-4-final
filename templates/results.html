@@ -19,7 +19,12 @@
               
                     <p style="margin:0px;"><b>Results</b></p>
                    <h1>The predicted UFO shape for Latitude {{LATITUDE}} and Longitude {{LONGITUDE}} is </h1>
-                   <h1>{{ output }}</h1>
+                   <h1> {% if output ==1 %}
+                        Your shape is light!
+                        {% else %}
+                        Your result is dim!
+                        {% endif %}
+                    </h1>
                 </div>
             </div>
 

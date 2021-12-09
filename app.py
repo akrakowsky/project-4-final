@@ -39,11 +39,7 @@ def predict():
         # Take the first value of prediction
         #output = list(label_encoder.inverse_transform(prediction))[0]
         output = prediction[0]
-        if prediction == 1:
-            output = "Light"
-        else if:
-            output = "Dim"
         return render_template("results.html", output=output, exp=[data1, data2])
-
+        
 if __name__ == '__main__':
     app.run(debug=True)
