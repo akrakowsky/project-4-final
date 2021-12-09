@@ -10,7 +10,6 @@ import numpy as np
 from flask import Flask, render_template, request, jsonify
 import pickle
 from sklearn import preprocessing
-from sklearn.preprocessing import LabelEncoder
 
 app = Flask(__name__)
 
