@@ -34,4 +34,4 @@ pickle.dump(regressor, open('model.pkl','wb'))
 
 # Loading model to compare the results
 model = pickle.load( open('model.pkl','rb'))
-print(model.predict([[38.58, -121.49]]))
+#print(model.predict([[38.58, -121.49]]))
