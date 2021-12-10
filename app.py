@@ -1,8 +1,8 @@
 # Create API of ML model using flask
 
 '''
-This code takes the JSON data while POST request an performs the prediction using loaded model and returns
-the results in JSON format.
+This code takes the data while POST request an performs the prediction using loaded model and returns
+the prediction.
 '''
 
 # Import libraries

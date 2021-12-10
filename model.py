@@ -1,7 +1,6 @@
-# Simple Linear Regression
 
 '''
-This model predicts the salary of the employ based on experience using simple linear regression model.
+This model predicts the shape of a ufo using previously reported locations using a logistic regression model.
 '''
 
 # Importing the libraries
